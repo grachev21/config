@@ -1,0 +1,12 @@
+# alias
+alias work='cd /home/grachev/disk/storage/portfolio/mysite_001 && source venv/bin/activate && vim'
+alias server='cd /home/grachev/disk/storage/portfolio/mysite_001 && source venv/bin/activate && python3 manage.py runserver'
+alias notes='cd /home/grachev/disk/storage/notes && vim'
+alias dvd_backup='dvd+rw-format -f /dev/sr0  &&
+                  growisofs -R -J -speed=2 -Z /dev/cdrom /home/grachev/disk/'
+~                                                                              
+
+# install
+sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen pcmanfm pulseaudio alsa-utils pavucontrol terminator vim git firefox-esr ranger rofi gpick arc-theme rtorrent fonts-font-awesome dvd+rw-tools growisofs
+
+
