@@ -11,11 +11,11 @@ order += "run_watch openvpn"
 order += "run_watch openconnect"
 order += "volume master"
 # order += "wireless _first_"
-# order += "battery all"
+order += "battery all"
 order += "disk /"
 order += "memory"
 order += "cpu_usage"
-# order += "cpu_temperature 0"
+order += "cpu_temperature 0"
 order += "tztime local"
 
 # отслеживание процесса openvpn
@@ -41,7 +41,7 @@ run_watch openconnect {
 # управление громкостью звука
 volume master {
     format = " %volume" # шаблон громкости в активном состоянии
-    format_muted = " %volume" # шаблон громкости в состоянии muted (без звука)
+    format_muted = "Громкость %volume" # шаблон громкости в состоянии muted (без звука)
     device = "default"
     mixer = "Master"
     mixer_idx = 0
@@ -68,10 +68,10 @@ battery all {
     # изношенности аккумулятора
     last_full_capacity = true
     format_down = "No battery"
-    status_chr = "" # статус подзарядки
-    status_bat = "" # статус в режиме работы от батареи
+    status_chr = "Заряжается" # статус подзарядки
+    status_bat = "Батарея" # статус в режиме работы от батареи
     status_unk = "? UNK" # неизвестный статус
-    status_full = "" # статус полного заряда
+    status_full = "Зарядка окончена" # статус полного заряда
     path = "/sys/class/power_supply/BAT%d/uevent"
 
     # нижний порог заряда, после которого блок
@@ -87,7 +87,7 @@ disk "/" {
     # %free, %percentage_free - свободное пространство
     # %avail, %percentage_avail - доступное пространство
     # %total - всего
-    format = " %avail"
+    format = "Диск  %avail"
 
     # будет окрашен в "color_bad" (по умолчанию красный)
     # при достижении нижнего порога менее 10GB доступного пространства
@@ -104,7 +104,7 @@ memory {
     # %free, percentage_free
     # %available, percentage_available
     # %shared, percentage_shared
-    format = "memory %used"
+    format = "Память %used"
 
     # порог, при котором вывод окрасится в
     # желтый (degraded) или красный (critical)
@@ -116,12 +116,12 @@ memory {
 
 # температура процессора
 cpu_temperature 0 {
-    format = " %degrees"
+    format = "Температура %degrees"
 
     # верхний порог температуры, при достижении которого
     # вывод окрасится красным,
     # и формат изменится на format_above_threshold
-    max_threshold = "80"
+    max_threshold = "50"
     format_above_threshold = " %degrees"
     path = "/sys/class/thermal/thermal_zone0/temp"
 }
@@ -130,7 +130,7 @@ cpu_temperature 0 {
 cpu_usage {
     # %usage - процентное использование ЦП
     # %cpu<N> - начиная с %cpu0 и далее показывает использование ядер
-    format = " %usage"
+    format = "Процессор  %usage"
 
     # доступны параметры:
     # degraded_threshold, окрас в желтый, по умолчанию 90
@@ -141,5 +141,5 @@ cpu_usage {
 
 # вывод даты и времени по заданному формату
 tztime local {
-    format = " %d %b  %H:%M:%S"
+    format = "Дата и время  %d %b  %H:%M:%S"
 }

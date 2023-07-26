@@ -53,9 +53,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 default_border pixel
 
 for_window [tiling] border pixel 1
+exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:alt_shift_toggle
 
-gaps inner 10
-gaps outer 4
+# gaps inner 10
+# gaps outer 4
 # smart_gaps on
 
 exec --no-startup-id compton -b
@@ -139,10 +140,10 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
+bindsym $mod+u workspace number $ws1
+bindsym $mod+i workspace number $ws2
+bindsym $mod+o workspace number $ws3
+bindsym $mod+p workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
