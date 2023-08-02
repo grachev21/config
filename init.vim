@@ -1,13 +1,13 @@
-
 call plug#begin()
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'ap/vim-css-color'
+Plug 'bagrat/vim-buffet'
 Plug 'davidhalter/jedi-vim'
+Plug 'tpope/vim-dadbod'
 Plug 'tc50cal/vim-terminal'
 Plug 'pseewald/vim-anyfold'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'python-mode/python-mode'
 Plug 'flazz/vim-colorschemes'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
@@ -20,6 +20,7 @@ Plug 'preservim/nerdtree'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'voldikss/vim-translator'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-python/python-syntax'
 Plug 'wakatime/vim-wakatime'
 Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
@@ -38,7 +39,7 @@ set nobackup
 set noswapfile                                                                  
 set nowrap
 
-" setlocal spell spelllang=ru_ru,en_us
+setlocal spell spelllang=ru_ru,en_us
 " set textwidth=80 wrapmargin=80
 
 " set colorcolumn=80
@@ -109,51 +110,22 @@ autocmd Filetype <your-filetype> AnyFoldActivate " activate for a specific filet
 set foldlevel=0  " close all folds
 set foldlevel=99 " Open all folds
 
-" set termguicolors
 
-" colorscheme base16-onedark
-" colorscheme base16-atlas
-" colorscheme 0x7A69_dark
 colorscheme onedark
-"=====================================================
-" Python-mode settings
-"=====================================================
-" Включаем библиотеку Rope
-let g:pymode_rope = 1
+" colorscheme gruvbox
 
-" Включаем linting
-let g:pymode_lint = 1
-
-" Какие ошибки подсвечивать
-let g:pymode_lint_checker = "pyflakes,pep8"
-
-" Отключаем надоедливое окно, отображающее ошибки и предупреждения
-" let g:pymode_lint_cwindow = 0
-
-" Включаем поддержку virtualenv
-let g:pymode_virtualenv = 1
-
-" Подсветка синтаксиса и ошибок
-" let g:pymode_syntax = 1
-" let g:pymode_syntax_all = 1
-" let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-" let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" Отключаем фолдинг
-let g:pymode_folding = 0
-
-" Загружаем плагин для вставки брейкпоинтов
-let g:pymode_breakpoint = 1
-
-" По leader + e будет устанавливаться брейкпоинт
-let g:pymode_breakpoint_key = '<F7>'
-
-" set termguicolors
-
-" colorscheme base16-atlas
-
+" Включает подсветку синтаксиса plug python
 let g:python_highlight_all = 1
 
-
-
-
+" rainbow
+let g:rainbow_active = 1
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
