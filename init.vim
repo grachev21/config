@@ -2,18 +2,23 @@ call plug#begin()
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'ap/vim-css-color'
 Plug 'bagrat/vim-buffet'
+Plug 'vim-scripts/SQLComplete.vim'
+Plug 'gosukiwi/vim-atom-dark'
 Plug 'davidhalter/jedi-vim'
-Plug 'tpope/vim-dadbod'
 Plug 'tc50cal/vim-terminal'
 Plug 'pseewald/vim-anyfold'
 Plug 'joshdick/onedark.vim'
+Plug 'https://github.com/Yggdroot/indentLine'
+Plug 'sickill/vim-monokai'
 Plug 'kien/ctrlp.vim'
-Plug 'flazz/vim-colorschemes'
+" Plug 'flazz/vim-colorschemes'
 Plug 'easymotion/vim-easymotion'
 Plug 'elzr/vim-json'
 Plug 'airblade/vim-gitgutter'
+Plug 'tribela/vim-transparent'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
+" Plug 'https://github.com/python-mode/python-mode'
 Plug 'godlygeek/tabular'                               
 Plug 'preservim/vim-markdown'    
 Plug 'preservim/nerdtree'
@@ -39,7 +44,7 @@ set nobackup
 set noswapfile                                                                  
 set nowrap
 
-setlocal spell spelllang=ru_ru,en_us
+" setlocal spell spelllang=ru_ru,en_us
 " set textwidth=80 wrapmargin=80
 
 " set colorcolumn=80
@@ -112,10 +117,11 @@ set foldlevel=99 " Open all folds
 
 
 colorscheme onedark
-" colorscheme gruvbox
+" colorscheme monokai
 
 " Включает подсветку синтаксиса plug python
 let g:python_highlight_all = 1
+let g:pymode_options_max_line_length = 200
 
 " rainbow
 let g:rainbow_active = 1
@@ -129,3 +135,4 @@ nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
+

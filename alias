@@ -5,4 +5,4 @@ alias tre='trans -b ru:en'
 alias ter='trans -b en:ru'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
-
+alias token='pbcopy ~/.token'
