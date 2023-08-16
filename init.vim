@@ -4,6 +4,7 @@ Plug 'ap/vim-css-color'
 Plug 'bagrat/vim-buffet'
 Plug 'vim-scripts/SQLComplete.vim'
 Plug 'gosukiwi/vim-atom-dark'
+Plug 'ryanoasis/vim-devicons'
 Plug 'davidhalter/jedi-vim'
 Plug 'tc50cal/vim-terminal'
 Plug 'pseewald/vim-anyfold'
@@ -26,13 +27,13 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'voldikss/vim-translator'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-python/python-syntax'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 Plug 'MattesGroeger/vim-bookmarks'
 call plug#end()
 
 " *****************************************************************************
 
-
+set encoding=UTF-8
 " Настройки для браузера и вкладок
 let g:netrw_banner = 0 " hide banner above files
 let g:netrw_liststyle = 3 " tree instead of plain view
@@ -103,6 +104,7 @@ nmap <silent> <Leader>r <Plug>TranslateR
 vmap <silent> <Leader>r <Plug>TranslateRV
 " Translate the text in clipboard
 nmap <silent> <Leader>x <Plug>TranslateX
+
 let translator_target_lang = 'ru'
 
 " Настройки для плагина складывания
@@ -115,13 +117,20 @@ autocmd Filetype <your-filetype> AnyFoldActivate " activate for a specific filet
 set foldlevel=0  " close all folds
 set foldlevel=99 " Open all folds
 
+" установка breakpoints
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
+" отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+" отключает проверку длинны строки
+let g:pymode_lint_ignore = "E501,W"
 
 colorscheme onedark
 " colorscheme monokai
-
 " Включает подсветку синтаксиса plug python
 let g:python_highlight_all = 1
-let g:pymode_options_max_line_length = 200
 
 " rainbow
 let g:rainbow_active = 1
@@ -135,4 +144,7 @@ nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
+
+
+
 
