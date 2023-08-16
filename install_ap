@@ -7,6 +7,5 @@ alias dvd_backup='dvd+rw-format -f /dev/sr0  &&
 ~                                                                              
 
 # install
-sudo apt install i3 xorg lightdm slick-greeter lightdm-settings lxappearance nitrogen pcmanfm pulseaudio alsa-utils pavucontrol terminator vim git firefox-esr ranger rofi gpick arc-theme rtorrent fonts-font-awesome dvd+rw-tools growisofs
 
 
