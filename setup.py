@@ -2,14 +2,17 @@ import subprocess
 
 list_command = [
         'touch ~/.token',
-        'cp -p i3/config ~/.config/i3/config',
-        'cp -p i3status/config ~/.config/i3status/config',
-        'cp -p .bash_aliases ~/.bash_aliases',
-        'cp -p .vimrc ~/.vimrc',
+        'mkdir ~/.config/i3',
+        'cp ~/configi3/config ~/.config/i3/config',
+        'mkdir ~/.config/i3status',
+        'cp ~/config/i3status/config ~/.config/i3status/config',
+        'cp ~/config/.bash_aliases ~/.bash_aliases',
+        'cp ~/config/.vimrc ~/.vimrc',
+        'curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz',
         'curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim',
-        'sudo apt install i3 lxappearance nitrogen vim git ranger rofi gpick arc-theme fonts-font-awesome'
+        'sudo apt install i3status i3 lxappearance nitrogen vim git ranger rofi gpick arc-theme fonts-font-awesome, font-manager'
         ]
 
-for comman in list_command:
-    subprocess.run(command)
+for command in list_command:
+    subprocess.call(command, shell=True)
