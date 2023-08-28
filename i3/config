@@ -201,7 +201,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
 position top
-status_command i3status
+# status_command i3status
+
+status_command i3status --config ~/.config/i3status/i3status.conf
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:hack bold 12
+  separator_symbol " > "
 colors {
     background #003d3d
     statusline #FFFFFF
