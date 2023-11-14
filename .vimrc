@@ -1,61 +1,110 @@
 call plug#begin()
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'ap/vim-css-color'
-Plug 'bagrat/vim-buffet'
-Plug 'vim-scripts/SQLComplete.vim'
-Plug 'gosukiwi/vim-atom-dark'
-Plug 'ryanoasis/vim-devicons'
-Plug 'davidhalter/jedi-vim'
-Plug 'tc50cal/vim-terminal'
-Plug 'pseewald/vim-anyfold'
-Plug 'joshdick/onedark.vim'
+" Цвета css
+Plug 'https://github.com/ap/vim-css-color'
+" Для python
+Plug 'https://github.com/davidhalter/jedi-vim'
+" Складывание
+Plug 'https://github.com/pseewald/vim-anyfold'
+" Вертикальные линии
 Plug 'https://github.com/Yggdroot/indentLine'
-Plug 'sickill/vim-monokai'
-Plug 'kien/ctrlp.vim'
-" Plug 'flazz/vim-colorschemes'
-Plug 'easymotion/vim-easymotion'
-Plug 'elzr/vim-json'
-Plug 'airblade/vim-gitgutter'
-Plug 'tribela/vim-transparent'
-Plug 'tpope/vim-commentary'
-Plug 'mattn/emmet-vim'
-" Plug 'https://github.com/python-mode/python-mode'
-Plug 'godlygeek/tabular'                               
-Plug 'preservim/vim-markdown'    
-Plug 'preservim/nerdtree'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'voldikss/vim-translator'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-python/python-syntax'
-" Plug 'wakatime/vim-wakatime'
-Plug 'MattesGroeger/vim-bookmarks'
+" Работа с файлами
+Plug 'https://github.com/kien/ctrlp.vim'
+" Работа с текстом
+Plug 'https://github.com/easymotion/vim-easymotion'
+" Работа с git
+Plug 'https://github.com/airblade/vim-gitgutter'
+" Коментирование
+Plug 'https://github.com/tpope/vim-commentary'
+" Работа с html
+Plug 'https://github.com/mattn/emmet-vim'
+" Работа с markdown
+Plug 'https://github.com/preservim/vim-markdown'
+Plug 'https://github.com/godlygeek/tabular'
+" Строка состояния
+Plug 'https://github.com/vim-airline/vim-airline'
+" Улучшает подсветку синтаксиса python
+Plug 'https://github.com/vim-python/python-syntax'
+" Тема
+Plug 'https://github.com/joshdick/onedark.vim'
 call plug#end()
 
-" *****************************************************************************
-
 set encoding=UTF-8
-" Настройки для браузера и вкладок
-let g:netrw_banner = 0 " hide banner above files
-let g:netrw_liststyle = 3 " tree instead of plain view
-let g:netrw_browse_split = 3 " vertical split window when Enter pressed on file
 
+
+
+" Markdown
+" let g:vim_markdown_conceal = 1
+" let g:vim_markdown_folding_disabled = 1
+" let g:vim_markdown_toc_autofit = 1
+
+
+
+" vim-anyfold
+filetype plugin indent on " required
+syntax on                 " required
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes
+" or
+autocmd Filetype <your-filetype> AnyFoldActivate " activate for a specific filetype
+set foldlevel=0  " close all folds
+" or
+set foldlevel=99 " Open all folds
+
+
+
+" indentLine
+" Vim
+" let g:indentLine_color_term = 239
+" GVim
+" let g:indentLine_color_gui = '#A4E57E'
+" none X terminal
+" let g:indentLine_color_tty_light = 7 " (default: 4)
+" let g:indentLine_color_dark = 1 " (default: 2)
+" Background (Vim, GVim)
+" let g:indentLine_bgcolor_term = 202
+" let g:indentLine_bgcolor_gui = '#FF5F00'
+
+
+
+" ctrlp
+let g:ctrlp_working_path_mode = '/home/grachev'
+
+
+
+
+" vim-easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
 
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+
+
+" python-syntax
+let g:python_highlight_all = 1
+
+
+
+" Тема
+syntax on
+" colorscheme onedark
+
+
+
+
+" Простые настройкм
 set nobackup                                                                    
 set noswapfile                                                                  
 set nowrap
-
-" setlocal spell spelllang=ru_ru,en_us
-" set textwidth=80 wrapmargin=80
-
-" set colorcolumn=80
-
-" Перенос текста
-" set wrap linebreak
-
-" NerdTree настройки                                                            
-map <C-n> :NERDTreeToggle<CR>                                                   
-
 " включить подсветку синтаксиса
 syntax enable
 " установить tab равным 4 пробелам
@@ -66,85 +115,20 @@ set autoindent
 set expandtab
 " при использовании команд >> или << сдвигать строки на 4 пробела
 set shiftwidth=4
-" выделять строку, на которой находится курсор
-set cursorline
-" Сокрытие синтаксиса
-set conceallevel=2
-" режим складывания для md
-let g:vim_markdown_folding_style_pythonic = 1
-" Отключение складывания
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_autowrite = 1
-let g:markdown_enable_conceal = 1
 " Отступы и настройка строк
 set expandtab
 set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" set number
-"Для кирилицы
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-highlight lCursor guifg=NONE guibg=Cyan
 
-"translate
-""" Configuration example
-" Echo translation in the cmdline
-nmap <silent> <Leader>t <Plug>Translate
-vmap <silent> <Leader>t <Plug>TranslateV
-" Display translation in a window
-nmap <silent> <Leader>w <Plug>TranslateW
-vmap <silent> <Leader>w <Plug>TranslateWV
-" Replace the text with translation
-nmap <silent> <Leader>r <Plug>TranslateR
-vmap <silent> <Leader>r <Plug>TranslateRV
-" Translate the text in clipboard
-nmap <silent> <Leader>x <Plug>TranslateX
 
-let translator_target_lang = 'ru'
+" Горячие клавиши
+map <C-i>  :set conceallevel=1 <Enter>
+map <C-v>  :set conceallevel=0 <Enter>
+inoremap jk <Esc>
 
-" Настройки для плагина складывания
-filetype plugin indent on " required
 
-autocmd Filetype * AnyFoldActivate               " activate for all filetypes
-" or
-autocmd Filetype <your-filetype> AnyFoldActivate " activate for a specific filetype
-
-set foldlevel=0  " close all folds
-set foldlevel=99 " Open all folds
-
-" установка breakpoints
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-" отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
-" отключает проверку длинны строки
-let g:pymode_lint_ignore = "E501,W"
 
 colorscheme onedark
-" colorscheme monokai
-" Включает подсветку синтаксиса plug python
-let g:python_highlight_all = 1
-
-" rainbow
-let g:rainbow_active = 1
-nmap <leader>1 <Plug>BuffetSwitch(1)
-nmap <leader>2 <Plug>BuffetSwitch(2)
-nmap <leader>3 <Plug>BuffetSwitch(3)
-nmap <leader>4 <Plug>BuffetSwitch(4)
-nmap <leader>5 <Plug>BuffetSwitch(5)
-nmap <leader>6 <Plug>BuffetSwitch(6)
-nmap <leader>7 <Plug>BuffetSwitch(7)
-nmap <leader>8 <Plug>BuffetSwitch(8)
-nmap <leader>9 <Plug>BuffetSwitch(9)
-nmap <leader>0 <Plug>BuffetSwitch(10)
-
-
-
 
