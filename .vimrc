@@ -26,6 +26,11 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-python/python-syntax'
 " Тема
 Plug 'https://github.com/joshdick/onedark.vim'
+
+Plug 'https://github.com/preservim/nerdtree'
+
+" Вкладки
+Plug 'https://github.com/bagrat/vim-buffet'
 call plug#end()
 
 set encoding=UTF-8
@@ -123,6 +128,31 @@ set softtabstop=4
 set shiftwidth=4
 
 
+
+" Вкладки
+nmap <leader>1 <Plug>BuffetSwitch(1)
+nmap <leader>2 <Plug>BuffetSwitch(2)
+nmap <leader>3 <Plug>BuffetSwitch(3)
+nmap <leader>4 <Plug>BuffetSwitch(4)
+nmap <leader>5 <Plug>BuffetSwitch(5)
+nmap <leader>6 <Plug>BuffetSwitch(6)
+nmap <leader>7 <Plug>BuffetSwitch(7)
+nmap <leader>8 <Plug>BuffetSwitch(8)
+nmap <leader>9 <Plug>BuffetSwitch(9)
+nmap <leader>0 <Plug>BuffetSwitch(10)
+
+" Note: Make sure the function is defined before `vim-buffet` is loaded.
+function! g:BuffetSetCustomColors()
+  hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#00FF00 guifg=#000000
+endfunction
+
+map <Tab> :bn<CR>
+map <S-Tab> :bp<CR>
+map <Leader><Tab> :Bw<CR>
+map <Leader><S-Tab> :Bw!<CR>
+map <C-t> :tabnew split<CR>
+
+
 " Горячие клавиши
 map <C-i>  :set conceallevel=1 <Enter>
 map <C-v>  :set conceallevel=0 <Enter>
@@ -130,5 +160,16 @@ inoremap jk <Esc>
 
 
 
-colorscheme onedark
+" colorscheme onedark
+
+
+
+
+
+
+" nerdtree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
