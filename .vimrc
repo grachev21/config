@@ -26,9 +26,8 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-python/python-syntax'
 " Тема
 Plug 'https://github.com/joshdick/onedark.vim'
-
+" Браузер
 Plug 'https://github.com/preservim/nerdtree'
-
 " Вкладки
 Plug 'https://github.com/bagrat/vim-buffet'
 call plug#end()
@@ -36,15 +35,7 @@ call plug#end()
 set encoding=UTF-8
 
 
-
-" Markdown
-" let g:vim_markdown_conceal = 1
-" let g:vim_markdown_folding_disabled = 1
-" let g:vim_markdown_toc_autofit = 1
-
-
-
-" vim-anyfold
+" VIM-ANYFOLD
 filetype plugin indent on " required
 syntax on                 " required
 autocmd Filetype * AnyFoldActivate               " activate for all filetypes
@@ -56,7 +47,7 @@ set foldlevel=99 " Open all folds
 
 
 
-" indentLine
+" INDENTlINE
 " Vim
 " let g:indentLine_color_term = 239
 " GVim
@@ -70,13 +61,13 @@ set foldlevel=99 " Open all folds
 
 
 
-" ctrlp
+" CTRLP
 let g:ctrlp_working_path_mode = '/home/grachev'
 
 
 
 
-" vim-easymotion
+" VIM-EASYMOTION
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -94,19 +85,19 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 
 
-" python-syntax
+" PYTHON-SYNTAX
 let g:python_highlight_all = 1
 
 
 
-" Тема
+" ТЕМА
 syntax on
+colorscheme default
 " colorscheme onedark
 
 
 
-
-" Простые настройкм
+" ПРОСТЫЕ НАСТРОЙКМ
 set nobackup                                                                    
 set noswapfile                                                                  
 set nowrap
@@ -127,9 +118,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-
-
-" Вкладки
+" ВКЛАДКИ
 nmap <leader>1 <Plug>BuffetSwitch(1)
 nmap <leader>2 <Plug>BuffetSwitch(2)
 nmap <leader>3 <Plug>BuffetSwitch(3)
@@ -146,30 +135,33 @@ function! g:BuffetSetCustomColors()
   hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#00FF00 guifg=#000000
 endfunction
 
-map <Tab> :bn<CR>
-map <S-Tab> :bp<CR>
-map <Leader><Tab> :Bw<CR>
-map <Leader><S-Tab> :Bw!<CR>
-map <C-t> :tabnew split<CR>
+map <C-l> :bn<CR>
+map <C-h> :bp<CR>
 
-
-" Горячие клавиши
+" ГОРЯЧИЕ КЛАВИШИ
 map <C-i>  :set conceallevel=1 <Enter>
 map <C-v>  :set conceallevel=0 <Enter>
+map <F2> :e /home/grachev/disk/notes/ <Enter>
 inoremap jk <Esc>
 
-
-
-" colorscheme onedark
-
-
-
-
-
-
-" nerdtree
+" NERDTREE
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+
+" СКОБКИ
+let g:rainbow_active = 1
+
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
+
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+
 
